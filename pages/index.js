@@ -1,6 +1,6 @@
 import MeetupList from '../components/meetups/MeetupList.js'
-import Layout from '../components/layout/Layout.js'
-import { useEffect, useState } from 'react';
+//import Layout from '../components/layout/Layout.js'
+import {} from 'next/router';
 const DUMMY_MEETUPS = [
     {
         id:'m1',
@@ -26,14 +26,20 @@ const DUMMY_MEETUPS = [
     
 ]
 
-const HomePage = () =>
+const HomePage = (props) =>
 {
-    const [loadedMeetups,setLoadedMeetups] = useState();
-    useEffect(()=>{
-        // http here
-        setLoadedMeetups(DUMMY_MEETUPS);
-    },[]);
-    return <MeetupList meetups={loadedMeetups} />
+
+    return <MeetupList meetups={props.meetups} />
    
 }
+
+export async function getStaticProps(){
+    return{
+        props:{
+            meetups:DUMMY_MEETUPS
+        },
+        revalidate: 10,
+    }
+};
+
 export default HomePage;
