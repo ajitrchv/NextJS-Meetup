@@ -6,9 +6,9 @@ function NewMeetupPage() {
   const router = useRouter();
 
   async function addMeetupHandler(enteredMeetupData) {
-    console.log(enteredMeetupData);
-    console.log('================Json==========');
-    console.log(JSON.stringify(enteredMeetupData));
+    // console.log(enteredMeetupData);
+    // console.log('================Json==========');
+    // console.log(JSON.stringify(enteredMeetupData));
 
     const response = await fetch('/api/new-meetup', {
       method: 'POST',
